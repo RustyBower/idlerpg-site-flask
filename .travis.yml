@@ -1,0 +1,10 @@
+language: python
+python:
+  - '3.5'
+install: "pip install -e ."
+services:
+  - redis-server
+script:
+  - py.test --cov=site tests
+  - codeclimate-test-reporter
+  - pycodestyle --show-source --ignore=E501,E402  ./
